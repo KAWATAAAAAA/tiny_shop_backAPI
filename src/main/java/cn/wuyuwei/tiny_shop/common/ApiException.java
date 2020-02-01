@@ -12,7 +12,7 @@ import lombok.Data;
 public class ApiException extends RuntimeException{
     private static final long serialVersionUID = 1L;
 
-    private int status;
+    private int code;
 
     private String message;
     private Object data;
@@ -20,20 +20,20 @@ public class ApiException extends RuntimeException{
     public ApiException() {
         super();
     }
-    public ApiException(int status, String message, Object data, Exception exception) {
-        this.status = status;
+    public ApiException(int code, String message, Object data, Exception exception) {
+        this.code = code;
         this.message = message;
         this.data = data;
         this.exception = exception;
     }
     public ApiException(ApiResultEnum apiResultEnum) {
-        this(apiResultEnum.getStatus(),apiResultEnum.getMessage(),null,null);
+        this(apiResultEnum.getCode(),apiResultEnum.getMessage(),null,null);
     }
     public ApiException(ApiResultEnum apiResultEnum, Object data) {
-        this(apiResultEnum.getStatus(),apiResultEnum.getMessage(),data,null);
+        this(apiResultEnum.getCode(),apiResultEnum.getMessage(),data,null);
     }
     public ApiException(ApiResultEnum apiResultEnum, Object data, Exception exception) {
-        this(apiResultEnum.getStatus(),apiResultEnum.getMessage(),data,exception);
+        this(apiResultEnum.getCode(),apiResultEnum.getMessage(),data,exception);
     }
 
 

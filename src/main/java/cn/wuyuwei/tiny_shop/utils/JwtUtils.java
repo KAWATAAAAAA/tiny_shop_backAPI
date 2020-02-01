@@ -57,10 +57,7 @@ public class JwtUtils {
                     .withIssuer(ISSUER)
                     .build(); //Reusable verifier instance 可复用的验证实例
             DecodedJWT jwt = verifier.verify(token);
-
-
             return jwt;
-
     }
 
     /*------------------------------------------Using HS256-------------------------------------------------------*/

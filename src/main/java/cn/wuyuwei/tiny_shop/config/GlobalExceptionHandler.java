@@ -54,14 +54,14 @@ public class GlobalExceptionHandler {
     public Result ApiException(ApiException ex) {
         System.out.println("捕获到了ApiException");
         logger.error(ex.getMessage(),ex);
-        return Result.error(ex.getStatus(),ex.getMessage());
+        return Result.error(ex.getCode(),ex.getMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)
     public Result RuntimeException(RuntimeException ex){
         System.out.println("捕获到了RuntimeException");
         logger.error(ex.getMessage(),ex);
-        return Result.error(ApiResultEnum.ERROR_RUNTION);
+        return Result.error(ApiResultEnum.ERROR_RUNTION.getCode(),ApiResultEnum.ERROR_RUNTION.getMessage());
     }
 
     @ExceptionHandler(Exception.class)

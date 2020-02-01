@@ -19,18 +19,18 @@ public enum ApiResultEnum {
     ;
 
     private String message;
-    private int status;
+    private int code;
 
     public String getMessage() {
         return this.message;
     }
 
-    public int getStatus() {
-        return this.status;
+    public int getCode() {
+        return this.code;
     }
-    private ApiResultEnum(int status, String message) {
+    private ApiResultEnum(int code, String message) {
         this.message = message;
-        this.status = status;
+        this.code = code;
     }
 
 

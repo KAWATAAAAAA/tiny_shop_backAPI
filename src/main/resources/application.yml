@@ -31,6 +31,9 @@ spring:
       content-type: text/html
 
 
+  servlet:
+    multipart:
+      max-file-size:10MB
 
 #mybatis-plus配置控制台打印完整带参数SQL语句
 mybatis-plus:

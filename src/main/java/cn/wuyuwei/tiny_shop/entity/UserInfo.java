@@ -44,5 +44,8 @@ public class UserInfo  implements Serializable {
 
 	@TableField("user_password" )
 	private String userPassword;
+
+	@TableField("user_avatar" )
+	private String userAvatar;
 	
 }

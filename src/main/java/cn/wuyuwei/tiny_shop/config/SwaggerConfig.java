@@ -33,14 +33,18 @@ public class SwaggerConfig implements WebMvcConfigurer {
 //                .required(false).build(); //非必需，这里是全局配置，然而在登陆的时候是不用验证的
 //        List<Parameter> aParameters = new ArrayList<Parameter>();
 //        aParameters.add(aParameterBuilder.build());
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(productApiInfo())
-                .groupName("v1").select()
-                .apis(RequestHandlerSelectors.basePackage("top.lrshuai")).build().globalOperationParameters(null);
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(productApiInfo())
+                .groupName("v1")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.wuyuwei.tiny_shop.controller"))
+                .build()
+                .globalOperationParameters(null);
     }
 
     private ApiInfo productApiInfo() {
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("接口文档")
+                .title("RESTful Api")
                 .version("1.0.0")
                 .build();
         return apiInfo;

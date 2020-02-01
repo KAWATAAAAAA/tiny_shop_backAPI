@@ -8,7 +8,7 @@ public class Result extends HashMap<String, Object> {
     private static final long serialVersionUID = 1L;
 
     public Result() {
-        put("status", 200);
+        put("code", 200);
         put("message", "ok");
     }
 
@@ -20,16 +20,16 @@ public class Result extends HashMap<String, Object> {
         return error(500, msg);
     }
 
-    public static Result error(int status, String msg) {
+    public static Result error(int code, String msg) {
         Result r = new Result();
-        r.put("status", status);
+        r.put("code", code);
         r.put("message", msg);
         return r;
     }
 
     public static Result error(ApiResultEnum resultEnum) {
         Result r = new Result();
-        r.put("status", resultEnum.getStatus());
+        r.put("code", resultEnum.getCode());
         r.put("message", resultEnum.getMessage());
         return r;
     }
