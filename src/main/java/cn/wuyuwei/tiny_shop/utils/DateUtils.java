@@ -16,6 +16,11 @@ public class DateUtils {
             "yyyyMMdd");
     private final static SimpleDateFormat sdfTime = new SimpleDateFormat(
             "yyyy-MM-dd HH:mm:ss");
+
+    public static Date getNowbySimple(){
+        Calendar cal = new GregorianCalendar();
+        return cal.getTime();
+    }
     /**
      *  获取当天的开始时间
      * @return

@@ -14,7 +14,11 @@ public enum ApiResultEnum {
 
     TOKEN_EXPIRED(10001,"token 过期,请重新登录"),
     SIGN_VERIFI_ERROR(10002,"签名不匹配,请重新登录"),
-    ALGORITHM_CAN_NOT_NULL(10003,"加密方式不能为空，可选 RS256、HS256")
+    ALGORITHM_CAN_NOT_NULL(10003,"加密方式不能为空，可选 RS256、HS256"),
+
+
+
+    HAS_BEEN_REGISTERED(10004,"已被注册")
 
     ;
 

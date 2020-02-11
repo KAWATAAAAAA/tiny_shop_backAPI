@@ -1,6 +1,8 @@
 package cn.wuyuwei.tiny_shop.utils;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.context.WebServerApplicationContext;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -19,7 +21,14 @@ import java.net.UnknownHostException;
 @Component
 public class HostUtils implements ApplicationListener<WebServerInitializedEvent> {
 
+
     private int serverPort;
+
+    @Override
+    public void onApplicationEvent(WebServerInitializedEvent event) {
+        System.out.println("端口号被调用");
+        this.serverPort = event.getWebServer().getPort();
+    }
 
     public int getServerPort() {
         return this.serverPort;
@@ -43,14 +52,12 @@ public class HostUtils implements ApplicationListener<WebServerInitializedEvent>
             e.printStackTrace();
         }
 
-       // return "http://"+address.getHostAddress()+":"+this.getServerPort();
+
+       //return "http://"+address.getHostAddress()+":"+this.getServerPort();
         return "http://"+address.getHostAddress()+":8080";
     }
 
 
 
-    @Override
-    public void onApplicationEvent(WebServerInitializedEvent event) {
-        this.serverPort = event.getWebServer().getPort();
-    }
+
 }

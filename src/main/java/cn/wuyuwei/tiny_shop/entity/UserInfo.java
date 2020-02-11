@@ -11,14 +11,14 @@ import java.util.Date;
 /**
  * @Description  
  * @Author  HelloWorld
- * @Date 2020-01-02 
+ * @Date 2020-02-04 
  */
 
 @Data
 @TableName ("user_info" )
 public class UserInfo  implements Serializable {
 
-	private static final long serialVersionUID =  6329896388694028116L;
+	private static final long serialVersionUID =  3453992427836954436L;
 
 	@TableId
 	@TableField("user_id" )
@@ -47,5 +47,14 @@ public class UserInfo  implements Serializable {
 
 	@TableField("user_avatar" )
 	private String userAvatar;
-	
+
+	@TableField("user_gender" )
+	private String userGender;
+
+	@TableField("user_intro" )
+	private String userIntro;
+
+	@TableField("is_saler" )
+	private Boolean isSaler;
+
 }

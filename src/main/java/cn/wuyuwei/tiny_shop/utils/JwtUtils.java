@@ -1,11 +1,9 @@
 package cn.wuyuwei.tiny_shop.utils;
 
 import cn.wuyuwei.tiny_shop.entity.RSA256Key;
-import cn.wuyuwei.tiny_shop.entity.UserInfo;
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 
@@ -19,7 +17,7 @@ public class JwtUtils {
 
     /*-----------------------------------------Using RS256-------------------------------------------------------*/
     /*获取签发的token，返回给前端*/
-    public static String generTokenByRS256(Long id) throws Exception{
+    public static String generTokenByRS256(Object id) throws Exception{
 
         RSA256Key rsa256Key = SecretKeyUtils.getRSA256Key(); // 获取公钥/私钥
         Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey(), rsa256Key.getPrivateKey());
