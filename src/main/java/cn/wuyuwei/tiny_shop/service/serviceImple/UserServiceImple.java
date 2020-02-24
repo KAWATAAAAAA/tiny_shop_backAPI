@@ -1,4 +1,4 @@
-package cn.wuyuwei.tiny_shop.service;
+package cn.wuyuwei.tiny_shop.service.serviceImple;
 
 
 import cn.wuyuwei.tiny_shop.dao.UserMapper;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class UserService {
+public class UserServiceImple {
     @Resource
     private UserMapper userMapper;
 
@@ -28,6 +28,7 @@ public class UserService {
         Map<String,Object> map = new HashMap<>();
         map.put("user_phone_num",user.getUserPhoneNum());
         map.put("user_password",user.getUserPassword());
+
 
         // where user_nick_name = "nibaba" and user_real_name = "wqy"
         List<UserInfo> list = userMapper.selectByMap(map);

@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
     public Result HttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex){
         System.out.println("捕获到了HttpRequestMethodNotSupportedException");
         logger.error(ex.getMessage(),ex);
-        return Result.error(ApiResultEnum.ERROR_MOTHODNOTSUPPORT);
+        return Result.error(ApiResultEnum.ERROR_METHODNOTSUPPORT);
     }
 
     @ExceptionHandler(ApiException.class)

@@ -110,7 +110,12 @@
             <!-- 将依赖关系标记为可选<optional>true</optional>，防止使用项目将devtools传递性地应用于其他模块 -->
             <optional>true</optional>
         </dependency>
-
+        <!--搜索分词器-->
+        <dependency>
+            <groupId>com.janeluo</groupId>
+            <artifactId>ikanalyzer</artifactId>
+            <version>2012_u6</version>
+        </dependency>
     </dependencies>
 
     <build>

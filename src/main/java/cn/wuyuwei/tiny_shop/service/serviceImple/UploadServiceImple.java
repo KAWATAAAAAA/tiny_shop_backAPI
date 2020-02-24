@@ -1,9 +1,8 @@
-package cn.wuyuwei.tiny_shop.service;
+package cn.wuyuwei.tiny_shop.service.serviceImple;
 
 import cn.wuyuwei.tiny_shop.dao.UserMapper;
 import cn.wuyuwei.tiny_shop.utils.HostUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,12 +16,12 @@ import java.util.UUID;
 
 
 @Service
-public class UploadService {
+public class UploadServiceImple {
     @Resource
     private UserMapper userMapper;
 
     @Autowired
-    private UserService userService;
+    private UserServiceImple userService;
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -80,4 +79,27 @@ public class UploadService {
 
         return hostUtils.getUrl() + "/upload_repository/storeLogo/" + fileName;
     }
+    public String doUploadGoodsPreviewImage(MultipartFile file, HttpServletRequest request)throws IOException{
+        String fileName = file.getOriginalFilename();
+        String filePath = "F:\\毕业设计总指挥部\\upload_repository\\goodsPerview\\";
+
+        String exts = fileName.substring(fileName.lastIndexOf(".") + 1); //取出扩展名
+        fileName = UUID.randomUUID().toString()+"."+exts;   //UUID化 重命名
+
+        File dest = new File(filePath + fileName);  // 创建文件实例
+
+        // 如果文件目录不存在，创建目录
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+            System.out.println("创建目录" + filePath);
+        }
+
+        file.transferTo(dest);      // 写入文件
+
+        HostUtils hostUtils = new HostUtils();
+
+        //写数据库需要整体提交再做，这里不需要这么做
+        return hostUtils.getUrl() + "/upload_repository/goodsPerview/" + fileName;
+    }
+
 }

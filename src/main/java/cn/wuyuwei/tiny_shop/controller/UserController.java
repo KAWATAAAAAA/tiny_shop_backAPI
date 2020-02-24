@@ -8,7 +8,7 @@ import cn.wuyuwei.tiny_shop.config.custom_annotation.LoginRequired;
 import cn.wuyuwei.tiny_shop.entity.RSA256Key;
 
 import cn.wuyuwei.tiny_shop.entity.UserInfo;
-import cn.wuyuwei.tiny_shop.service.UserService;
+import cn.wuyuwei.tiny_shop.service.serviceImple.UserServiceImple;
 import cn.wuyuwei.tiny_shop.utils.JwtUtils;
 import cn.wuyuwei.tiny_shop.utils.SecretKeyUtils;
 import com.alibaba.fastjson.JSON;
@@ -27,11 +27,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 
-@Api(tags = "用户操作控制层")
+@Api(tags = "用户 Actions Controller")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImple userService;
 
 
     @PassToken
@@ -68,6 +68,7 @@ public class UserController {
     }
     @PassToken
     @RequestMapping(value = "/register",method = RequestMethod.POST)
+    @ApiOperation(value = "注册")
     public Result register(@RequestBody UserInfo user){
         int result = userService.doRegister(user);
         if (result == 0){

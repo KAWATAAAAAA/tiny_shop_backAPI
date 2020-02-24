@@ -20,6 +20,9 @@ import java.lang.annotation.Target;
  * 被MyAnnotation注解类标识的类被类加载器加载到内存中后MyAnnotation注解就不存在了
  */
 
+/**
+ * @author wuyuwei
+ */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LoginRequired {
