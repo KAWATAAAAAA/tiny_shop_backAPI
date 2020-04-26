@@ -27,10 +27,10 @@ public class AddressInfo  implements Serializable {
 	private Long addressId;
 
 	@TableField("is_default" )
-	private Integer isDefault;
+	private Boolean isDefault;
 
-	@TableField("address" )
-	private String address;
+	@TableField("detail_address" )
+	private String detailAddress;
 
 	@TableField("user_id" ) // Foreign key
 	private Long userId;

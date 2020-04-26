@@ -47,6 +47,9 @@ public class GoodsInfo  implements Serializable {
 	@TableField("store_id" )
 	private Long storeId;
 
+	@TableField("store_name" )
+	private String storeName;
+
 	@TableField("goods_sales_vol")
 	private Long goodsSalesVol;
 }

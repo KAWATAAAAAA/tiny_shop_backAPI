@@ -8,6 +8,7 @@ import cn.wuyuwei.tiny_shop.utils.IKAnalyzerUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -110,6 +111,12 @@ public class GoodsServiceImple implements GoodsService {
     public Map<String, Object> doSearchByName(CommonGoodsQueryCondition condition) throws Exception {
         QueryWrapper<GoodsInfo> queryWrapper = this.setQueryCondition(condition);
         return this.getMyGoodsInfo(queryWrapper,condition.getCurrentPage(),condition.getSize());
+    }
+
+    @Override
+    public  List<GoodsInfo> doSelectGoodsInfoGroup(List<String> goodsIdList) throws Exception {
+        List<GoodsInfo> list = goodsMapper.selectBatchIds(goodsIdList);
+        return list;
     }
 
 

@@ -3,6 +3,7 @@ package cn.wuyuwei.tiny_shop.service;
 import cn.wuyuwei.tiny_shop.entity.CommonGoodsQueryCondition;
 import cn.wuyuwei.tiny_shop.entity.GoodsInfo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,6 @@ public interface GoodsService {
     public Map<String,Object> doLimitQuery(CommonGoodsQueryCondition condition) throws Exception;
 
     public Map<String,Object> doSearchByName(CommonGoodsQueryCondition condition)throws Exception;
+
+    public List<GoodsInfo> doSelectGoodsInfoGroup(List<String> ids)throws Exception;
 }

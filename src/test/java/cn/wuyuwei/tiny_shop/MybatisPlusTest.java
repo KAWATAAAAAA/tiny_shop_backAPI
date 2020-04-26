@@ -1,7 +1,9 @@
 package cn.wuyuwei.tiny_shop;
 
 import cn.wuyuwei.tiny_shop.dao.GoodsMapper;
+import cn.wuyuwei.tiny_shop.dao.ShoppingCartMapper;
 import cn.wuyuwei.tiny_shop.entity.GoodsInfo;
+import cn.wuyuwei.tiny_shop.entity.ShoppingCart;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -22,6 +24,8 @@ public class MybatisPlusTest {
 
     @Resource
     GoodsMapper goodsMapper;
+    @Resource
+    ShoppingCartMapper shoppingCartMapper;
 
     @Test
     public void limitTest(){
@@ -36,5 +40,16 @@ public class MybatisPlusTest {
         System.out.println("总记录数:"+iPage.getTotal());
         List<GoodsInfo> list = iPage.getRecords();
         System.out.println(list);
+    }
+    @Test
+    public void shoppingCartQueryTest(){
+        //ShoppingCart shoppingCart = shoppingCartMapper.selectShoppingCartGoodsList(1590837172);
+        //System.out.println(shoppingCart);
+    }
+
+    @Test
+    public void  shoppingCartUpdateTest(){
+        //int n = shoppingCartMapper.updateShoppingCartGoodsItem(Long.parseLong("3790168"),3);
+        //System.out.println(n);
     }
 }

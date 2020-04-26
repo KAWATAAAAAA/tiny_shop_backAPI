@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +47,7 @@ public class GoodsController {
         }
     }
 
-
+    @LoginRequired
     @GetMapping("/goods-list")
     @ApiOperation(value = "分页查询宝贝",notes = "必须指定参数currentPage，size，sort，其它参数一次请求只能出现一个")
     public Result getGoodsList(CommonGoodsQueryCondition condition)throws Exception{
@@ -76,14 +77,18 @@ public class GoodsController {
         return Result.ok(JSON.toJSON(map));
     }
 
-    @GetMapping("/search")
-    @ApiOperation(value = "搜索指定名称的宝贝")
-    public Result getGoodsByCondition(CommonGoodsQueryCondition condition)throws Exception{
-        Map<String,Object> map = null;
-        map = goodsService.doSearchByName(condition);
-        if (map.size() > 0){
-            return Result.ok(map);
-        }
+    @LoginRequired
+    @GetMapping("/goods-group")
+    @ApiOperation(value = "查询订单中的一组宝贝信息",notes = "LoginRequired")
+    public Result getGoodsList(@RequestParam("goodsIdList") List<String> goodsIdList){
+        try {
+            List<GoodsInfo> list = goodsService.doSelectGoodsInfoGroup(goodsIdList);
+            return Result.ok(list);
+        } catch (Exception e) {
+            e.printStackTrace();
             return Result.error(ApiResultEnum.ERROR);
+        }
+
     }
+
 }
