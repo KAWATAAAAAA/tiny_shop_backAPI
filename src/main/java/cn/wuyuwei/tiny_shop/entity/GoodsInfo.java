@@ -52,4 +52,6 @@ public class GoodsInfo  implements Serializable {
 
 	@TableField("goods_sales_vol")
 	private Long goodsSalesVol;
+
+	private transient int num;
 }

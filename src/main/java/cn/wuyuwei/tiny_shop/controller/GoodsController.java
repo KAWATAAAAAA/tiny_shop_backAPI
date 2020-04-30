@@ -79,6 +79,7 @@ public class GoodsController {
 
     @LoginRequired
     @GetMapping("/goods-group")
+    @Deprecated
     @ApiOperation(value = "查询订单中的一组宝贝信息",notes = "LoginRequired")
     public Result getGoodsList(@RequestParam("goodsIdList") List<String> goodsIdList){
         try {

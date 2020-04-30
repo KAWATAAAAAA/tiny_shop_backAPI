@@ -95,4 +95,18 @@ public class OrderController {
 
 
     }
+
+    @LoginRequired
+    @PatchMapping("/stage-seven")
+    @ApiOperation(value = "完成收货，更新订单状态为已完成",notes = "LoginRequired")
+    public Result updateOrderStatusComplete(@RequestBody OrderInfo orderInfo){
+
+        try {
+            int n = orderService.todoUpdateOrderStageSeven(orderInfo);
+            return Result.ok(n);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(ApiResultEnum.ERROR);
+        }
+    }
 }

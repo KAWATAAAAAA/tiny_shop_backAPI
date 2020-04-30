@@ -44,10 +44,11 @@ public class OrderInfo  implements Serializable {
 	@TableField("address_id" )
 	private Long addressId;
 
-	@TableField(value = "goods_id_list" ,typeHandler = JacksonTypeHandler.class)
-	private List<String> goodsIdList;
+	@TableField(value = "goods_list" ,typeHandler = JacksonTypeHandler.class)
+	private List<GoodsInfo> goodsList;
 
 	@TableField("user_id" )
 	private Long userId;
+
 
 }

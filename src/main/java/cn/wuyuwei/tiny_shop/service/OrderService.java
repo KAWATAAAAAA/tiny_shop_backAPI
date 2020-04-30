@@ -14,6 +14,7 @@ public interface OrderService {
     public int todoUpdateOrderStageTwo(OrderInfo orderInfo)throws Exception;
     public void todoUpdateOrderStageThree(OrderInfo orderInfo)throws Exception;
     public int todoUpdateOrderStageFour(OrderInfo orderInfo)throws Exception;
+    public int todoUpdateOrderStageSeven(OrderInfo orderInfo)throws Exception;
     public void todoUpdateOrderFailureStatus(OrderInfo orderInfo);
     public List<OrderInfo> todoSeletOrderList(HttpServletRequest request) throws Exception;
     public int todoDeleteOrderItem(Long orderId) throws Exception;
