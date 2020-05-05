@@ -23,4 +23,9 @@ public class DataCenterServiceImple {
         return list;
 
     }
+
+    public int selectSumSalesVolume(Long storeId){
+        int sum =  salerDataCenterMapper.selectSalesVolumeSum(storeId);
+        return sum;
+    }
 }

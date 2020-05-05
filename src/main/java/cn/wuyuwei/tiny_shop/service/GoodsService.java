@@ -19,6 +19,7 @@ public interface GoodsService {
     public Map<String,Object> doLimitQuery(CommonGoodsQueryCondition condition) throws Exception;
 
     public Map<String,Object> doSearchByName(CommonGoodsQueryCondition condition)throws Exception;
+    public Map<String,Object> getHotGoodsList()throws Exception;
 
     public List<GoodsInfo> doSelectGoodsInfoGroup(List<String> ids)throws Exception;
 }

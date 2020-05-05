@@ -36,4 +36,12 @@ public class DataCenterController {
         return Result.ok(list);
     }
 
+    @LoginRequired
+    @GetMapping("/sales-volume")
+    @ApiOperation(value = "获取当前店铺的销售总量",notes = "LoginRequired")
+    public Result getSalesVolume(Long storeId){
+        int sum = dataCenterServiceImple.selectSumSalesVolume(storeId);
+        return Result.ok(sum);
+    }
+
 }

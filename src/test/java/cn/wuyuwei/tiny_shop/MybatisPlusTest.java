@@ -102,4 +102,15 @@ public class MybatisPlusTest {
         // 遍历 goodsList ，通过id 组更新销量
 
     }
+
+    /*
+    * sum 聚合查询测试
+    * */
+    @Test
+    public void selectSumSalesVolume(){
+        Long storeId = Long.parseLong("1590837172");
+
+        int sum =  salerDataCenterMapper.selectSalesVolumeSum(storeId);
+        System.out.println(sum);
+    }
 }

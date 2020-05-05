@@ -92,4 +92,20 @@ public class GoodsController {
 
     }
 
+    @GetMapping("/goods-top")
+    @ApiOperation(value = "查询历史销量高的商品")
+    public Result getHotGoodsList(){
+        Map<String,Object> map = null;
+        try {
+            map = goodsService.getHotGoodsList();
+            return Result.ok(map);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(ApiResultEnum.ERROR);
+        }
+
+
+
+    }
+
 }

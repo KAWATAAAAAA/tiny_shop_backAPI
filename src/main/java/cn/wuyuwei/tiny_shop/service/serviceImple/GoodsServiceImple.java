@@ -178,4 +178,14 @@ public class GoodsServiceImple implements GoodsService {
         map.put("total",iPage.getTotal());
         return map;
     }
+
+    /**
+    * 热度商品
+    * */
+    @Override
+    public Map<String,Object> getHotGoodsList(){
+        QueryWrapper<GoodsInfo> queryWrapper = new QueryWrapper<GoodsInfo>();
+        queryWrapper.orderByDesc("goods_sales_vol");
+        return this.getMyGoodsInfo(queryWrapper,0,10);
+    }
 }
