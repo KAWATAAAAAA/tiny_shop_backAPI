@@ -46,6 +46,34 @@ public class GoodsController {
             return Result.error(ApiResultEnum.ERROR);
         }
     }
+    @LoginRequired
+    @PatchMapping("/goods-info")
+    @ApiOperation(value = "更新宝贝信息",notes = "LoginRequired")
+    public Result updateGoodsInfo(@RequestBody GoodsInfo goods, HttpServletRequest request) throws Exception{
+        System.out.println(goods);
+        int result = goodsService.doUpdateGoodsInfo(goods);
+
+        if (result == 1){
+            return Result.ok("修改信息重新上架成功！");
+        }else
+        {
+            return Result.error(ApiResultEnum.ERROR);
+        }
+    }
+    @LoginRequired
+    @PostMapping("/goods-info")
+    @ApiOperation(value = "下架宝贝信息",notes = "LoginRequired")
+    public Result deletedGoodsInfo(@RequestBody GoodsInfo goods, HttpServletRequest request) throws Exception{
+        System.out.println(goods);
+        int result = goodsService.doDeletedGoodsInfo(goods);
+
+        if (result == 1){
+            return Result.ok("下架成功！");
+        }else
+        {
+            return Result.error(ApiResultEnum.ERROR);
+        }
+    }
 
     @LoginRequired
     @GetMapping("/goods-list")

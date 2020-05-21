@@ -11,11 +11,10 @@ import com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler;
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 import lombok.experimental.Accessors;
-
 /**
  * @Description  
  * @Author  HelloWorld
- * @Date 2020-02-13 
+ * @Date 2020-05-10 
  */
 
 @Data
@@ -47,11 +46,36 @@ public class GoodsInfo  implements Serializable {
 	@TableField("store_id" )
 	private Long storeId;
 
+	@TableField("goods_sales_vol" )
+	private Long goodsSalesVol;
+
 	@TableField("store_name" )
 	private String storeName;
 
-	@TableField("goods_sales_vol")
-	private Long goodsSalesVol;
+	@TableField("colorRate" )
+	private int colorRate;
+
+	@TableField("holdRate" )
+	private int holdRate;
+
+	@TableField("waterRate" )
+	private int waterRate;
+
+	@TableField("smoothRate" )
+	private int smoothRate;
+
+	@TableField("productSpe" )
+	private int productSpe;
+
+	@TableField("expTimeNum" )
+	private int expTimeNum;
+
+	@TableField("goods_desc" )
+	private String goodsDesc;
+
+	@TableField("goods_tips" )
+	private String goodsTips;
 
 	private transient int num;
+
 }

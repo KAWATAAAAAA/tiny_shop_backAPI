@@ -127,7 +127,7 @@ public class OrderServiceImple implements OrderService {
                 {
                     if (goods.getStoreId().equals(currentId))
                     {
-                        totalPrice+= goods.getGoodsPrice();
+                        totalPrice+= goods.getGoodsPrice() * goods.getNum();
                     }
                 }
                 salerDataCenter.setAmount(totalPrice);

@@ -22,7 +22,7 @@ public class AddressServiceImple implements AddressService{
     @Autowired
     UserServiceImple userServiceImple;
     @Override
-    public List<AddressInfo> todoSelectAddressInfoList(HttpServletRequest request) {
+    public List<AddressInfo> todoSelectAddressInfoList(HttpServletRequest request) throws Exception{
         String token = request.getHeader("Authorization");
         String userId = userServiceImple.getUserIdByToken(token);
 

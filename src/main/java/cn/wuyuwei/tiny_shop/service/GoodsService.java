@@ -12,6 +12,8 @@ import java.util.Map;
 public interface GoodsService {
 
     public int doInsertGoodsInfo(GoodsInfo goods) throws Exception;
+    public int doUpdateGoodsInfo(GoodsInfo goods) throws Exception;
+    public int doDeletedGoodsInfo(GoodsInfo goods) throws Exception;
     public Map<String,Object> doSortBySalesVol(CommonGoodsQueryCondition condition)throws Exception;
     public Map<String,Object> doSortByPrice(CommonGoodsQueryCondition condition) throws Exception;
     public Map<String,Object> doFilterByPriceRange(CommonGoodsQueryCondition condition)throws Exception;

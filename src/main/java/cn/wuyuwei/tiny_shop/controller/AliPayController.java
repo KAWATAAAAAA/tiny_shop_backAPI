@@ -42,6 +42,7 @@ public class AliPayController {
     @RequestMapping("/pay-page")
     public String  payController (PayParams payParams, HttpServletRequest request, HttpServletResponse response) throws IOException {
         //获得初始化的AlipayClient
+        System.out.println(payParams);
         AlipayClient alipayClient = new DefaultAlipayClient(
                 AliPayConfig.gatewayUrl,
                 AliPayConfig.APP_ID,
@@ -86,7 +87,7 @@ public class AliPayController {
         OrderInfo orderInfo = new OrderInfo();
         orderInfo.setOrderId(payParams.getOrderId());
         try {
-            orderService.todoUpdateOrderStageThree(orderInfo);
+                orderService.todoUpdateOrderStageThree(orderInfo);
         } catch (Exception e) {
             e.printStackTrace();
             orderService.todoUpdateOrderFailureStatus(orderInfo);

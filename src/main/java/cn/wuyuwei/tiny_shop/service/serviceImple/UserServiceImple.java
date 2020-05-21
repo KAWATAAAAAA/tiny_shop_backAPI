@@ -151,4 +151,13 @@ public class UserServiceImple {
         System.out.println("--------------------************------------------" + claim.asString());
         return claim.asString();
     }
+
+    /**
+     * friend controller
+     * */
+    public List<UserInfo> doSelectUserList()throws Exception{
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<UserInfo>();
+        queryWrapper.select("user_id","user_nick_name","user_avatar","user_gender","is_saler","user_intro");
+        return userMapper.selectList(queryWrapper);
+    }
 }

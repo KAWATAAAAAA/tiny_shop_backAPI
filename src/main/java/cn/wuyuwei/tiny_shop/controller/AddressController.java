@@ -28,9 +28,17 @@ public class AddressController {
     @GetMapping("/address-list")
     @ApiOperation(value = "查询用户的地址信息列表",notes = "LoginRequired")
     public Result queryAddressList(HttpServletRequest request){
-        List<AddressInfo> addressList = addressService.todoSelectAddressInfoList(request);
+        List<AddressInfo> addressList = null;
+        try {
+            addressList = addressService.todoSelectAddressInfoList(request);
+            return Result.ok(JSON.toJSON(addressList));
+        } catch (Exception e) {
 
-        return Result.ok(JSON.toJSON(addressList));
+            e.printStackTrace();
+            return Result.error(ApiResultEnum.ERROR);
+        }
+
+
     }
 
     @GetMapping("/address-item")

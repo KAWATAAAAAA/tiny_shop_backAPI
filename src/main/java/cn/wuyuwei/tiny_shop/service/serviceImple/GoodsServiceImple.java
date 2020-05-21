@@ -6,6 +6,7 @@ import cn.wuyuwei.tiny_shop.entity.GoodsInfo;
 import cn.wuyuwei.tiny_shop.service.GoodsService;
 import cn.wuyuwei.tiny_shop.utils.IKAnalyzerUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.catalina.User;
@@ -41,6 +42,22 @@ public class GoodsServiceImple implements GoodsService {
 
         return goodsMapper.insert(goods);
 
+    }
+
+    @Override
+    public int doUpdateGoodsInfo(GoodsInfo goods) throws Exception {
+
+        /*UpdateWrapper<GoodsInfo> updateWrapper = new UpdateWrapper<GoodsInfo>();
+        updateWrapper.eq("goods_id",goods.getGoodsId());*/
+        int n = goodsMapper.updateById(goods);
+        return n;
+    }
+
+    @Override
+    public int doDeletedGoodsInfo(GoodsInfo goods) throws Exception {
+
+        int n = goodsMapper.deleteById(goods);
+        return n;
     }
 
     /**
